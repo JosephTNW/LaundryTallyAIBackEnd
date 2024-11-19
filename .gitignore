@@ -1,0 +1,6 @@
+.env
+.flaskenv
+ngrok.exe
+thunderclient.env
+__pycache__
+desktop.ini
