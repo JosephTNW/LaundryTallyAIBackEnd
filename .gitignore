@@ -1,0 +1,4 @@
+.env
+.flaskenv
+ngrok.exe
+thunderclient.env
