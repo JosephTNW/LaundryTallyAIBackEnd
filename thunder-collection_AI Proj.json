@@ -1,0 +1,380 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "AI Proj",
+    "collectionId": "04e22358-d70e-401f-ba29-7330bb7b7d4b",
+    "dateExported": "2025-01-16T22:31:12.390Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "5e48ee8b-e042-4e76-a9de-2790fc738a5a",
+            "colId": "04e22358-d70e-401f-ba29-7330bb7b7d4b",
+            "containerId": "",
+            "name": "register",
+            "url": "localhost:5000/register",
+            "method": "POST",
+            "sortNum": 5000,
+            "created": "2024-06-20T16:42:06.184Z",
+            "modified": "2024-06-20T16:43:16.448Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Bob\",\n  \"email\": \"bob@example.com\",\n  \"password\": \"password\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "b8bb572d-3632-4368-8446-f8120cd20b4b",
+            "colId": "04e22358-d70e-401f-ba29-7330bb7b7d4b",
+            "containerId": "",
+            "name": "login",
+            "url": "localhost:5000/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-06-20T16:39:30.511Z",
+            "modified": "2024-07-13T15:45:06.577Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"alice@example.com\",\n  \"password\": \"password\"\n}",
+                "form": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.setVar(\"TOKEN\", tc.response.json.token);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "921fadc6-2577-4db8-9336-c96d441b2444",
+            "colId": "04e22358-d70e-401f-ba29-7330bb7b7d4b",
+            "containerId": "",
+            "name": "add_clothes",
+            "url": "localhost:5000/clothes",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-06-20T16:45:37.919Z",
+            "modified": "2024-07-06T16:15:11.060Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "{{TOKEN}}"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"type\": \"trouser\",\n  \"color\": \"red\",\n  \"cloth_pic\": \"clothes1.jpg\",\n  \"desc\":\"trousers from atlanta\"\n}",
+                "form": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.setVar(\"CLOTHES_ID\", tc.response.json.id);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "dfbeea79-2660-49ae-be92-1367b445faea",
+            "colId": "04e22358-d70e-401f-ba29-7330bb7b7d4b",
+            "containerId": "",
+            "name": "home",
+            "url": "localhost:5000/",
+            "method": "GET",
+            "sortNum": 45000,
+            "created": "2024-06-20T16:44:14.519Z",
+            "modified": "2024-06-20T17:20:20.858Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "{{TOKEN}}"
+                }
+            ]
+        },
+        {
+            "_id": "5a602fb0-61da-4aa9-a30a-b648371ddcbc",
+            "colId": "04e22358-d70e-401f-ba29-7330bb7b7d4b",
+            "containerId": "",
+            "name": "edit_clothes",
+            "url": "localhost:5000/clothes",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-06-20T17:33:21.434Z",
+            "modified": "2024-06-20T17:56:20.723Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "{{TOKEN}}"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": {{CLOTHES_ID}},\n  \"type\": \"pants\",\n  \"color\": \"green\",\n  \"cloth_pic\": \"path/image/new\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "1fe7d840-7229-4cd2-bfa4-60d2c2c6df7a",
+            "colId": "04e22358-d70e-401f-ba29-7330bb7b7d4b",
+            "containerId": "",
+            "name": "add_launderer",
+            "url": "localhost:5000/launderer",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-06-20T17:57:36.768Z",
+            "modified": "2024-07-08T01:14:37.342Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "{{TOKEN}}"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Pam-Pam Laundry\",\n  \"address\": \"Mekarmukti, Cikarang Utara, Bekasi Regency, West Java, 17530\",\n  \"phone_num\": \"0821 1222 0209\",\n  \"l_pic\": \"launderer1.jpg\",\n  \"desc\": \"pam pam\",\n  \"has_whatsapp\": 1,\n  \"has_delivery\": 1\n}",
+                "form": []
+            },
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "tc.setVar(\"LAUNDERER_ID\", tc.response.json.id);"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "e075de7a-ce71-45e8-920d-afde5b6a854e",
+            "colId": "04e22358-d70e-401f-ba29-7330bb7b7d4b",
+            "containerId": "",
+            "name": "view_launderers",
+            "url": "localhost:5000/launderer",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-06-20T17:57:51.997Z",
+            "modified": "2024-06-21T00:33:47.369Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "{{TOKEN}}"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": {{LAUNDERER_ID}}\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "b9dbbcfd-eda0-4c04-8b09-67bfa2c1c5bd",
+            "colId": "04e22358-d70e-401f-ba29-7330bb7b7d4b",
+            "containerId": "",
+            "name": "search_launderer",
+            "url": "localhost:5000/launderer/search?query=",
+            "method": "GET",
+            "sortNum": 85000,
+            "created": "2024-06-21T00:42:43.310Z",
+            "modified": "2024-07-08T04:54:47.229Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "{{TOKEN}}"
+                }
+            ],
+            "params": [
+                {
+                    "name": "query",
+                    "value": "",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "6a336d11-e583-4bb4-8189-c584d15b1965",
+            "colId": "04e22358-d70e-401f-ba29-7330bb7b7d4b",
+            "containerId": "",
+            "name": "edit_launderer",
+            "url": "localhost:5000/launderer",
+            "method": "PUT",
+            "sortNum": 90000,
+            "created": "2024-06-20T17:58:04.007Z",
+            "modified": "2024-06-21T01:39:19.048Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "{{TOKEN}}"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": {{LAUNDERER_ID}},\n  \"name\": \"Pam-Pam Laundry\",\n  \"address\": \"Mekarmukti, Cikarang Utara, Kabupaten Bekas, Jawa Barat 17530\",\n  \"has_delivery\": true,\n  \"has_whatsapp\": true,\n  \"phone_num\": \"0821 1222 0209\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "cd3fcd0b-f450-43c1-aae2-4d0c36b5af6d",
+            "colId": "04e22358-d70e-401f-ba29-7330bb7b7d4b",
+            "containerId": "",
+            "name": "add_laundry",
+            "url": "localhost:5000/laundry",
+            "method": "POST",
+            "sortNum": 95000,
+            "created": "2024-06-23T08:22:33.351Z",
+            "modified": "2024-06-23T08:25:32.362Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "{{TOKEN}}"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "e46ee2b3-cf00-473e-95f9-ab90cdda2ff9",
+            "colId": "04e22358-d70e-401f-ba29-7330bb7b7d4b",
+            "containerId": "",
+            "name": "delete_launderer",
+            "url": "localhost:5000/launderer",
+            "method": "DELETE",
+            "sortNum": 100000,
+            "created": "2024-06-20T17:58:14.158Z",
+            "modified": "2024-06-23T08:19:16.098Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "{{TOKEN}}"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": {{LAUNDERER_ID}}\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "cb6f94b6-267c-4244-9b4c-3b5d97fea473",
+            "colId": "04e22358-d70e-401f-ba29-7330bb7b7d4b",
+            "containerId": "",
+            "name": "delete_clothes",
+            "url": "localhost:5000/clothes",
+            "method": "DELETE",
+            "sortNum": 107500,
+            "created": "2024-06-20T17:46:16.782Z",
+            "modified": "2024-06-20T17:47:11.718Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "{{TOKEN}}"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": {{CLOTHES_ID}}\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "852fb2e0-17b8-40b7-9579-9d59b00d029e",
+            "colId": "04e22358-d70e-401f-ba29-7330bb7b7d4b",
+            "containerId": "",
+            "name": "test_ngrok",
+            "url": "https://p75xf3tq-5000.asse.devtunnels.ms/",
+            "method": "GET",
+            "sortNum": 117500,
+            "created": "2024-07-09T07:37:10.057Z",
+            "modified": "2024-07-09T07:47:52.706Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "ngrok-skip-browser-warning",
+                    "value": "",
+                    "isDisabled": true
+                }
+            ]
+        },
+        {
+            "_id": "f01330e3-a61d-4e55-ab5f-aac662fc7171",
+            "colId": "04e22358-d70e-401f-ba29-7330bb7b7d4b",
+            "containerId": "",
+            "name": "object_detect",
+            "url": "localhost:5000/object",
+            "method": "POST",
+            "sortNum": 127500,
+            "created": "2024-07-09T15:40:33.391Z",
+            "modified": "2024-07-09T15:41:29.456Z",
+            "headers": []
+        }
+    ],
+    "settings": {
+        "envId": "4d34b83a-9107-436e-8122-0f0869eb0d3b"
+    },
+    "ref": "_0oNA1N93KCtCJBD8K131OOLM49ulc0GddtdXz55qphKNbbe9gF_Fz3-kpAxqFnHbYCzWsSyF_50UK5qA8D8Fg"
+}

@@ -2,3 +2,7 @@
 .flaskenv
 ngrok.exe
 thunderclient.env
+desktop.ini
+.vercel
+venv
+__pycache__
